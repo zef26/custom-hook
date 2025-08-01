@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+🧩 useInputValidate – Custom React Hook Explained
+📌 Purpose
+useInputValidate is a custom React hook that simplifies form input handling by:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Storing the input value
 
-## Available Scripts
+Handling changes via onChange
 
-In the project directory, you can run:
+Validating the input to check if it contains at least one digit
 
-### `npm start`
+🧠 What It Does
+The hook returns an object with:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+value: the current input value
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+onChange: a function to update the value on input
 
-### `npm test`
+validateInput(): a function that checks if the value contains any numbers
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+✅ Example Usage
+jsx
+Копировать
+Редактировать
+const input = useInputValidate('');
+Now you can use:
 
-### `npm run build`
+jsx
+Копировать
+Редактировать
+<input
+  value={input.value}
+  onChange={input.onChange}
+  className={input.validateInput() ? 'text-danger' : ''}
+/>
+🧪 How It Works Internally
+js
+Копировать
+Редактировать
+function useInputValidate(initialValue) {
+  const [value, setValue] = useState(initialValue);
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  const onChange = (event) => {
+    setValue(event.target.value);
+  };
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  const validateInput = () => {
+    return value.search(/\d/) >= 0; // true if value contains any digit
+  };
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  return { value, onChange, validateInput };
+}
+🔄 Reusability
+You can use this hook multiple times in the same form:
 
-### `npm run eject`
+jsx
+Копировать
+Редактировать
+const nameInput = useInputValidate('');
+const messageInput = useInputValidate('');
+Each call maintains its own state and validation.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+💡 Why Use a Custom Hook
+Cleaner code: separates logic from JSX
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Reusability: same hook can be used in multiple fields
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Extensibility: easy to add more logic (like different validators or reset functions)
