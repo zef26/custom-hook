@@ -17,19 +17,19 @@ onChange: a function to update the value on input
 
 validateInput(): a function that checks if the value contains any numbers
 
-✅ Example Usage
-<img width="583" height="68" alt="image" src="https://github.com/user-attachments/assets/348b1e44-07ca-4dc6-a8e2-13b33fc81a33" />
+✅ Example Usage <br><br>
+<img width="583" height="68" alt="image" src="https://github.com/user-attachments/assets/348b1e44-07ca-4dc6-a8e2-13b33fc81a33" /><br>
 
-Now you can use:
-<img width="676" height="180" alt="image" src="https://github.com/user-attachments/assets/f59d6299-89c5-49d8-9990-4b7a655d4cfa" />
+Now you can use:<br><br>
+<img width="676" height="180" alt="image" src="https://github.com/user-attachments/assets/f59d6299-89c5-49d8-9990-4b7a655d4cfa" /><br>
 
-🧪 How It Works Internally
-<img width="795" height="422" alt="image" src="https://github.com/user-attachments/assets/d576a96d-c2ad-406c-ae55-9a1b470c7686" />
+🧪 How It Works Internally<br><br>
+<img width="795" height="422" alt="image" src="https://github.com/user-attachments/assets/d576a96d-c2ad-406c-ae55-9a1b470c7686" /><br>
 
 🔄 Reusability
-You can use this hook multiple times in the same form:
-<img width="596" height="104" alt="image" src="https://github.com/user-attachments/assets/70618693-aedf-429f-b9fa-4c45667603df" />
-Each call maintains its own state and validation.
+You can use this hook multiple times in the same form:<br><br>
+<img width="596" height="104" alt="image" src="https://github.com/user-attachments/assets/70618693-aedf-429f-b9fa-4c45667603df" /><br>
+Each call maintains its own state and validation.<br>
 
 💡 Why Use a Custom Hook
 Cleaner code: separates logic from JSX
